@@ -38,9 +38,7 @@ def categorizar(positivo,negativo):
   print("Total de Tweets: ",len(total))
 
 ###########EJECUCION###################3
-from controlador import servidor as sv
 
-sv.correr()
 
 print("Literal 1")
 tweet = tw.obtenerTweets(5) 
@@ -138,10 +136,7 @@ app = Flask(__name__)
 def hello_world():
   tweets = tw.obtenerTweets(5); 
   return json.dumps(tweets),{'Content-Type': 'application/json'}
-@app.route('/favicon.ico')
-def ico():
-  return ""
-def hello_world():
+
 
 def correr():
   app.run()
