@@ -129,3 +129,16 @@ print(temp[1])
 c1 = TextBlob(temp[0]).translate(to="en")
 print(c1.sentiment)
 
+from flask import Flask
+import json
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello_world():
+  tweets = tw.obtenerTweets(5); 
+  return json.dumps(tweets),{'Content-Type': 'application/json'}
+
+
+def correr():
+  app.run()
