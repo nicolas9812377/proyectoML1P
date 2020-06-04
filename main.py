@@ -138,7 +138,10 @@ app = Flask(__name__)
 def hello_world():
   tweets = tw.obtenerTweets(5); 
   return json.dumps(tweets),{'Content-Type': 'application/json'}
-
+@app.route('/favicon.ico')
+def ico():
+  return ""
+def hello_world():
 
 def correr():
   app.run()
