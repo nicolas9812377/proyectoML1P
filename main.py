@@ -38,10 +38,9 @@ def categorizar(positivo,negativo):
   print("Total de Tweets: ",len(total))
 
 ###########EJECUCION###################3
-
-
+"""
 print("Literal 1")
-tweet = tw.obtenerTweets(5) 
+tweet = tw.obtenerTweets(1) 
 temp = tweet[:]
 print(tweet)
 tweet = nl.minusculas(tweet)
@@ -105,9 +104,26 @@ longnorpos= cs.longnorm(wtf,modulo)
 vectorpos = cs.vectordistance(longnorpos)
 #print(vectorpos[1:,0])
 categorizar(vectorpos[1:,0],vectorneg[1:,0])
+"""
+"""
+print("Topic Modeling")
+import gensim 
+import nltk
+nltk.download('wordnet')
 
+zipeado = []
+for i in zip(dicposi,tfidf[0]):
+  zipeado.append(i)  
+print(list(zipeado[0:4]))
+lda_model_tfidf = gensim.models.LdaMulticore(list(zipeado), num_topics=10, id2word=dicposi, passes=2, workers=4)
+
+for idx, topic in lda_model_tfidf.print_topics(-1):
+    print('Topic: {} Word: {}'.format(idx, topic))
+"""
+"""
 print("literal 2")
 tt,etiquetado = lc.leercsv('modelo/datasetGlobal.csv')
+print(tt[0])
 tt = nl.minusculas(tt[:1000])
 tt = nl.eliminarce(tt)
 tt = nl.tokenizar(tt)
@@ -123,20 +139,20 @@ mv.maqvec(bolsa,etiquetado[:1000])
 print("literal 3")
 temp = nl.minusculas(temp)
 temp = nl.eliminarce(temp)
-print(temp[1])
+print(temp[0])
 c1 = TextBlob(temp[0]).translate(to="en")
 print(c1.sentiment)
+"""
 
-from flask import Flask
+
+from flask import Flask, request, render_template
 import json 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-  tweets = tw.obtenerTweets(5); 
-  return json.dumps(tweets),{'Content-Type': 'application/json;charset=utf-8'}
-
+def hello_world(): 
+  return render_template('index.html')
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0')
+  app.run(host='0.0.0.0',debug=True)

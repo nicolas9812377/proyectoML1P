@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analisis de Sentimientos</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,800" rel="stylesheet" media="screen">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='color/default.css') }}" rel="stylesheet" media="screen">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle nav</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+                <!-- Logo text or image -->
+                <a class="navbar-brand" href="index.html">JANMP</a>
+
+            </div>
+            <div class="navigation collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="current"><a href="#intro">Inicio</a></li>
+                    <li><a href="#about">Graficas</a></li>
+                    <li><a href="#portfolio">Trabajos</a></li>
+                    <li><a href="#team">Integrantes</a></li>
+                    <li><a href="#contact">Contactos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- intro area -->
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+                <div class="carousel-inner" role="listbox">
+                    <!-- Slide 1 -->
+                    <div class="item active">
+                        <div class="carousel-background"><img src="{{ url_for('static', filename='img/intro/fondo1.png') }}" alt=""></div>
+                        <div class="carousel-container">
+                            <div class="carousel-content">
+                                <h2 class="animated fadeInDown">Analisis De Sentimientos</h2>
+                                <p class="animated fadeInUp">Enfocado en los tweets de las personas con respecto al covid-19</p>
+                                <a href="#about" class="btn-get-started animated fadeInUp">Leer mas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pegar si desean Slide 2 -->
+                </div>
+            </div>
+    </section>
+    <!-- #intro -->
+
+    <!-- About -->
+    <section id="about" class="home-section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Graficas</h2>
+                        <div class="heading-line"></div>
+                        <p>Graficas Analisis de Sentimientos</p>
+                    </div>
+                </div>
+            </div>
+            <!-- pegar div class "row row fade" -->
+        </div>
+    </section>
+
+    <!-- Services -->
+    <div class="item">
+        <div class="row">
+            <div class="col-sm-12 col-md-offset-1 col-md-6">
+                <div class="wow bounceInLeft">
+                    <h4>Investigacion</h4>
+                    <div class="heading-line"></div>
+                    <p>Poner algo referente a la investigacion</p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-5">
+                <div class="screenshot wow bounceInRight">
+                    <img src="{{ url_for('static', filename='img/screenshots/3.png') }}" class="img-responsive" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-service" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-service" data-slide-to="1"></li>
+        <li data-target="#carousel-service" data-slide-to="2"></li>
+    </ol>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Works -->
+    <section id="portfolio" class="home-section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Trabajos</h2>
+                        <div class="heading-line"></div>
+                        <p>Hemos desarollado diferentes aplicaciones multiplataforma </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <ul id="og-grid" class="og-grid">
+                        <li>
+                            <a href="#" data-largesrc="{{ url_for('static', filename='/img/works/1.jpg') }}" data-title="Portfolio title" data-description="Duo te dico volutpat, unum elit oblique per id. Ne duo mollis sapientem intellegebat. Per at augue vidisse percipit, pri vocibus assueverit interesset ut, no dolore luptatum incorrupte nec. In mentitum forensibus nec, nibh eripuit ut pri, tale illud voluptatum ut sea. Sed oratio repudiare ei, cum an magna labitur, eu atqui augue mei. Pri consul detracto eu, solet nusquam accusam ex vim, an movet interesset necessitatibus mea.">
+                                <img src="./img/works/thumbs/1.jpg" alt="" />
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax 2 -->
+    <section id="parallax2" class="home-section parallax" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="clients">
+                        <li class="wow fadeInDown" data-wow-delay="0.3s">
+                            <div class="heading-line"></div>
+                            <p>POner lo que quieras </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="home-section bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Grupo de Trabajo</h2>
+                        <div class="heading-line"></div>
+                        <p>Expertos en investigación y desarrollo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                    <div class="box-team wow bounceInUp" data-wow-delay="0.1s">
+                        <img src="{{ url_for('static', filename='img/team/nico.PNG') }}" alt="" class="img-circle img-responsive" />
+                        <h4>Nicolas Carrasco</h4>
+                        <p>Integrante "Anonymus"</p>
+                        <p>El Bravo</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
+                    <div class="box-team wow bounceInUp">
+                        <img src="{{ url_for('static', filename='img/team/majo.PNG') }}" alt="" class="img-circle img-responsive" />
+                        <h4>Maria Jose Jacome</h4>
+                        <p>Novia del Anonymus</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.5s">
+                    <div class="box-team wow bounceInUp">
+                        <img src="{{ url_for('static', filename='img/team/paul.PNG') }}" alt="" class="img-circle img-responsive" />
+                        <h4>Paul Pazos</h4>
+                        <p>El Bufón</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.7s">
+                    <div class="box-team wow bounceInUp">
+                        <img src="{{ url_for('static', filename='img/team/ali.PNG') }}" alt="" class="img-circle img-responsive" />
+                        <h4>Alisson Mendoza</h4>
+                        <p>Analista y Recicladora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 
+    <section id="contact" class="home-section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Contactenos</h2>
+                        <div class="heading-line"></div>
+                        <p>Cualquier inquietud o duda al respecto, estamos prestos para servirles, brindamos atnecion las 24 horas del dia los 7 dias de la semana. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div id="sendmessage">Mensaje Enviado con exito. Gracias!</div>
+                    <div id="errormessage"></div>
+
+                    <form action="" method="post" class="form-horizontal contactForm" role="form">
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-offset-2 col-md-8">
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
+                                <div class="validation"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <button type="submit" class="btn btn-theme btn-lg btn-block">Enviar Mensaje/button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+-->
+    <!-- Bottom widget -->
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Copyright &copy; JANMP. All rights reserved.</p>
+                    <div class="credits">
+                        <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Alstar
+            -->
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- js -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/modernizr.custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/grid.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/stellar.js') }}"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="{{ url_for('static', filename='contactform/contactform.js') }}"></script>
+
+    <!-- Template Custom Javascript File -->
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+
+</body>
+
+</html>
