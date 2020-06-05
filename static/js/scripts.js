@@ -66,7 +66,8 @@ function graficar(){
       for(let i = 0; i < msg[2].length; i++ ){
         tabla += `<tr><td>${i+1}</td><td>${msg[2][i]}</td></tr>`; 
       }
-      $('#tablat tbody tr').not(':first').remove();
+
+      $('#tablat tbody tr').remove();
       $('#tablat').append(tabla);
       gr('container',datos,'Similitud Jaccard');
       gr('container1',datos1,'Similitud Coseno');
