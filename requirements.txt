@@ -5,3 +5,5 @@ flask == 1.1
 venv-run == 0.0.0
 gunicorn == 20.0
 virtualenv == 20.0
+gensim == 3.8
+pyldavis == 2.1
