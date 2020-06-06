@@ -63,10 +63,12 @@ function graficar(){
         {name: 'Neutros',y:msg[1][2]} 
       ];
       let tabla = ''
-      for(let i = 0; i < msg[2].length; i++ ){
-        tabla += `<tr><td>${i+1}</td><td>${msg[2][i]}</td></tr>`; 
+      for(let i = 0; i < msg[4].length; i++ ){
+        tabla += `<tr><td>${i+1}</td><td>${msg[4][i]}</td><td>${msg[2][i]}</td><td>${msg[3][i]}</td></tr>`; 
       }
-
+      $('#tablat').show();
+      $('#container').show();
+      $('#container1').show();
       $('#tablat tbody tr').remove();
       $('#tablat').append(tabla);
       gr('container',datos,'Similitud Jaccard');
@@ -86,8 +88,10 @@ function consulta(){
     success: function(msg){
       $('#loadingmessage1').hide();
       $('#boton1').attr("disabled", false);
+      $('#tw').text($('#tweet').val());
       $('#pol').text('Polaridad: '+msg[0]);
       $('#subj').text('Subjetividad: ' +msg[1]);
+      $('#tweet').val('');
     },
     error :function(err){console.log(err)}
   })

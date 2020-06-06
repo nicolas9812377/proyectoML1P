@@ -1,7 +1,5 @@
 from controlador import procesos as p  
-
-#p.literal2()
-
+p.literal2()
 
 from flask import Flask, render_template,request
 import json 

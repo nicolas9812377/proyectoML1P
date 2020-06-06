@@ -31,12 +31,12 @@ def categorizar(positivo,negativo):
       contneg +=1
 
   #for i in zip(total,temp1):
-  #  print(i)
+    #print(i)
   print("Porcentaje de Positivos: ",round(contpos/len(total),2))
   print("Porcentaje de Negativos: ",round(contneg/len(total),2))
   print("Porcentaje de Neutros: ",round(contneutro/len(total),2))
   print("Total de Tweets: ",len(total))
-  return [round(contpos/len(total),2),round(contneg/len(total),2),round(contneutro/len(total),2),len(total)]
+  return [round(contpos/len(total),2),round(contneg/len(total),2),round(contneutro/len(total),2),len(total)],temp1
 ##########################################################
 
 ###########LITERAL 1###################
@@ -62,7 +62,9 @@ def literal1(n):
   #Jaccard de Positivos
   positivo = ja.vectores(tweet,dicposi)
   #Obteniendo Resultados
-  rs.append(categorizar(positivo,negativo))
+  est1, cl1 = categorizar(positivo,negativo)
+  rs.append(est1)
+  
 
   print("\n*************Coseno*******************")
   #Coseno de Negativos
@@ -91,8 +93,12 @@ def literal1(n):
   longnorpos= cs.longnorm(tfidf,modulo)
   vectorpos = cs.vectordistance(longnorpos)
   #Obteniendo Resultados
-  rs.append(categorizar(vectorpos[1:,0],vectorneg[1:,0]))
+  est, cl = categorizar(vectorpos[1:,0],vectorneg[1:,0])
+  rs.append(est)
+  rs.append(cl1)
+  rs.append(cl)
   rs.append(temp[:8])
+  
   return rs
 ##########################################################
 """

@@ -19,5 +19,4 @@ tweepy = "^3.8"
 venv-run = "^0.0.0"
 virtualenv = "^20.0"
 pyldavis = "^2.1"
-ipython = "^7.15"
 [tool.poetry.dev-dependencies]
