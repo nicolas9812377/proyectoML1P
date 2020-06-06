@@ -75,3 +75,20 @@ function graficar(){
     error :function(err){console.log(err)}
   })
 }
+
+function consulta(){
+   $('#loadingmessage1').show();
+   $('#boton1').attr("disabled", true);
+  $.ajax({
+    url:'/lit3',
+    data:{tweet : $('#tweet').val()},
+    type: 'POST',
+    success: function(msg){
+      $('#loadingmessage1').hide();
+      $('#boton1').attr("disabled", false);
+      $('#pol').text('Polaridad: '+msg[0]);
+      $('#subj').text('Subjetividad: ' +msg[1]);
+    },
+    error :function(err){console.log(err)}
+  })
+}

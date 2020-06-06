@@ -1,5 +1,6 @@
 from controlador import procesos as p  
 
+#p.literal2()
 
 
 from flask import Flask, render_template,request
@@ -19,6 +20,12 @@ def grafica():
 def recibircant():
   if request.method == 'POST':
     rs = p.literal1(int(request.values.get('cant')))
+  return json.dumps(rs),{'Content-Type': 'application/json'}
+
+@app.route('/lit3',methods=['GET','POST'])
+def recibirtweet():
+  if request.method == 'POST':
+    rs = p.literal3(str(request.values.get('tweet')))
   return json.dumps(rs),{'Content-Type': 'application/json'}
 
 if __name__ == '__main__':

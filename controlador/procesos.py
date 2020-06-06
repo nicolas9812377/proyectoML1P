@@ -120,8 +120,9 @@ def topicmodeling():
 ###############LITERAL 2###############################
 def literal2():
   print("literal 2")
+  #Lee el DatasetGlobal.csv
   tt,etiquetado = lc.leercsv('modelo/datasetGlobal.csv')
-  print(tt[0])
+  #Proceso NLP
   tt = nl.minusculas(tt[:1000])
   tt = nl.eliminarce(tt)
   tt = nl.tokenizar(tt)
@@ -136,12 +137,13 @@ def literal2():
 #######################################################
 
 ##############LITERAL 3###########################
-def literal3():
+def literal3(frase):
+  temp = []
   print("literal 3")
-  temp = tw.obtenerTweets(500) 
+  temp.append(frase)
   temp = nl.minusculas(temp)
   temp = nl.eliminarce(temp)
-  print(temp[0])
-  c1 = TextBlob(temp[0]).translate(to="en")
+  c1 = TextBlob(frase).translate(from_lang='es',to='en')
   print(c1.sentiment)
+  return c1.sentiment
 ##################################################

@@ -42,7 +42,7 @@
                     <li class="current"><a href="#intro">Inicio</a></li>
                     <li><a href="#parte1">Parte 1</a></li>
                     <li><a href="#parte2">Parte 2</a></li>
-                    <li><a href="#contact">Parte 3</a></li>
+                    <li><a href="#parte3">Parte 3</a></li>
                     <li><a href="#team">Integrantes</a></li>
                     
                 </ul>
@@ -159,14 +159,24 @@
     </section>
 
     <!-- Works -->
-    <section id="portfolio" class="home-section bg-gray">
+    <section id="parte3" class="home-section bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8">
                     <div class="section-heading">
-                        <h2>Trabajos</h2>
+                        <h2>Parte 3</h2>
                         <div class="heading-line"></div>
-                        <p>Hemos desarollado diferentes aplicaciones multiplataforma </p>
+                        <p> Textblob's para
+encontrar directamente el sentimiento de un nuevo tweet basado en su corpus.</p>
+<input type="text" id="tweet" placeholder="Ingrese un Tweet">
+                        <input type= "button" id="boton1" value="Consultar" onclick="consulta()" >
+                        <div id='loadingmessage1' style='display:none'>
+       <img src='{{ url_for('static', filename='img/ajax-loader.gif') }}'/>
+       </div>
+                        <br>
+                        <label id = "pol">Polaridad: 0</label>
+                         <br>
+                        <label id="subj">Subjetividad: 0</label>
                     </div>
                 </div>
             </div>
