@@ -81,7 +81,7 @@
                         <h2>Parte 1</h2>
                         <div class="heading-line"></div>
                         <p>Similitud en los Corpus del Tweet con Diccionario de Sentimientos </p>
-                        <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese Cantidad de Tweets" required="required">
+                        <input type="number" min="0" id="cantidad" name="cantidad" placeholder="Ingrese Cantidad de Tweets" required="required">
                         <input type= "button" id="boton" value="Consultar" onclick="graficar()" >
                         <div id='loadingmessage' style='display:none'>
        <img src='{{ url_for('static', filename='img/ajax-loader.gif') }}'/>
