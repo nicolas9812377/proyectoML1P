@@ -73,7 +73,7 @@ function graficar(){
       $('#tablat').append(tabla);
       gr('container',datos,'Similitud Jaccard');
       gr('container1',datos1,'Similitud Coseno');
-    },
+    },timeout : 300000,
     error :function(err){console.log(err)}
   })
 }

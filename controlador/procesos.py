@@ -149,7 +149,11 @@ def literal3(frase):
   temp.append(frase)
   temp = nl.minusculas(temp)
   temp = nl.eliminarce(temp)
-  c1 = TextBlob(frase).translate(from_lang='es',to='en')
-  print(c1.sentiment)
-  return c1.sentiment
-##################################################
+  try:
+   c1 = TextBlob(frase).translate(from_lang='es',to='en')
+   print(c1.sentiment)
+   return c1.sentiment
+  except:
+    print('corregido error')
+    return [0,0]
+################################################## 
