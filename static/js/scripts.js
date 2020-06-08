@@ -98,10 +98,12 @@ function consulta(){
 }
 
 function cargar(){
+  $('#loadingmessage2').show();
   $.ajax({
     url:'/lit2',
     type: 'POST',
     success: function(msg){
+      $('#loadingmessage2').hide();
       var tabla = `<tr><td>${msg[0]}</td><td>${msg[1]}</td></tr><tr><td>${msg[2]}</td><td>${msg[3]}</td></tr>`; 
       $('#mtc').html(tabla);
       $('#pp').text("Porcentaje de Positivos : "+(msg[0]/300).toFixed(2));
