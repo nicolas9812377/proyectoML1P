@@ -104,10 +104,10 @@ function cargar(){
     success: function(msg){
       var tabla = `<tr><td>${msg[0]}</td><td>${msg[1]}</td></tr><tr><td>${msg[2]}</td><td>${msg[3]}</td></tr>`; 
       $('#mtc').html(tabla);
-      $('#pp').text("Porcentaje de Positivos :"+(msg[0]/300).toFixed(2));
-      $('#pn').text("Porcentaje de Negativos :"+(msg[3]/300).toFixed(2));
-      $('#pe').text("Porcentaje de Error :"+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
-      $('#pm').text("Precision del modelo :"+(msg[4]/1).toFixed(2));
+      $('#pp').text("Porcentaje de Positivos : "+(msg[0]/300).toFixed(2));
+      $('#pn').text("Porcentaje de Negativos : "+(msg[3]/300).toFixed(2));
+      $('#pe').text("Porcentaje de Error : "+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
+      $('#pm').text("Precision del modelo : "+(msg[4]/1).toFixed(2));
     },
     error :function(err){console.log(err)}
   })
