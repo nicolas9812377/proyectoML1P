@@ -139,7 +139,7 @@ def literal2():
   print('Generando Bolsa de Palabras')
   bolsa = nl.inverted(tt,dic)
   print('Maquina de Soporte Vectorial')
-  mv.maqvec(bolsa,etiquetado[:1000])
+  return mv.maqvec(bolsa,etiquetado[:1000])
 #######################################################
 
 ##############LITERAL 3###########################

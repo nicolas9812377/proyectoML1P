@@ -8,7 +8,12 @@ def leercsv(nombre):
       leer = csv.DictReader(csvfile, delimiter=',')
       for row in leer:#recorre lineas del documentp
         tweet.append(row['texto'])
-        etiquetado.append(row['cs'])
+        if(row['cs']=='-1'):
+          etiquetado.append(0)
+        elif(row['cs']=='0'):
+          etiquetado.append(-1)
+        else:
+          etiquetado.append(row['cs'])
   return tweet,etiquetado
 #####################################################
 ###########LEER TXT#################################

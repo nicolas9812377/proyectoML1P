@@ -1,5 +1,4 @@
 from controlador import procesos as p  
-p.literal2()
 
 from flask import Flask, render_template,request
 import json 
@@ -19,6 +18,12 @@ def recibircant():
   if request.method == 'POST':
     rs = p.literal1(int(request.values.get('cant')))
   return json.dumps(rs),{'Content-Type': 'application/json'}
+
+@app.route('/lit2',methods=['GET','POST'])
+def pedirMV():
+  if request.method == 'POST':
+    rs2 = p.literal2()
+  return json.dumps(rs2),{'Content-Type': 'application/json'}
 
 @app.route('/lit3',methods=['GET','POST'])
 def recibirtweet():

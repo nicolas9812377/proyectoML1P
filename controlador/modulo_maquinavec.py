@@ -5,7 +5,7 @@ import numpy as np
 def maqvec(x,y):
   X = np.array(x).T
   y = np.array(y)
-
+  rep=[]
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
   #Defino el algoritmo a utilizar
   from sklearn.svm import SVC
@@ -20,8 +20,17 @@ def maqvec(x,y):
   matriz = confusion_matrix(y_test, y_pred)
   print('Matriz de Confusión:')
   print(matriz)
+  rep.append(str(matriz[0][0]))
+  rep.append(str(matriz[0][1]))
+  rep.append(str(matriz[1][0]))
+  rep.append(str(matriz[1][1]))
   #Calculo la precisión del modelo
   from sklearn.metrics import precision_score
   precision = precision_score(y_test, y_pred, pos_label="1")
-  print('Precisión del modelo:')
-  print(precision)
+  print("Porcentaje de Positivos",matriz[0][0]/300)
+  print("Porcentaje de Negativos",matriz[1][1]/300)
+  print("Porcentaje de Error",(matriz[0][1]+matriz[1][0])/300)
+  print('Precisión del modelo:',precision)
+  rep.append(str(precision))
+  print(rep)
+  return rep

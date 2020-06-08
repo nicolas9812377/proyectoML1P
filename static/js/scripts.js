@@ -96,3 +96,19 @@ function consulta(){
     error :function(err){console.log(err)}
   })
 }
+
+function cargar(){
+  $.ajax({
+    url:'/lit2',
+    type: 'POST',
+    success: function(msg){
+      var tabla = `<tr><td>${msg[0]}</td><td>${msg[1]}</td></tr><tr><td>${msg[2]}</td><td>${msg[3]}</td></tr>`; 
+      $('#mtc').html(tabla);
+      $('#pp').text("Porcentaje de Positivos :"+msg[0]/300);
+      $('#pn').text("Porcentaje de Negativos :"+msg[3]/300);
+      $('#pe').text("Porcentaje de Error :"+((msg[1]+msg[2])/300));
+      $('#pm').text("Precision del modelo :"+msg[4]);
+    },
+    error :function(err){console.log(err)}
+  })
+}
