@@ -27,10 +27,10 @@ def maqvec(x,y):
   #Calculo la precisión del modelo
   from sklearn.metrics import precision_score
   precision = precision_score(y_test, y_pred, pos_label="1")
-  print("Porcentaje de Positivos",matriz[0][0]/300)
-  print("Porcentaje de Negativos",matriz[1][1]/300)
-  print("Porcentaje de Error",(matriz[0][1]+matriz[1][0])/300)
-  print('Precisión del modelo:',precision)
+  print("Porcentaje de Positivos",round(matriz[0][0]/300,2))
+  print("Porcentaje de Negativos",round(matriz[1][1]/300,2))
+  print("Porcentaje de Error",round((matriz[0][1]+matriz[1][0])/300,2))
+  print('Precisión del modelo:',round(precision,2))
   rep.append(str(precision))
-  print(rep)
+  
   return rep
