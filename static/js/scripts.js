@@ -107,7 +107,7 @@ function cargar(){
       $('#pp').text("Porcentaje de Positivos :"+(msg[0]/300).toFixed(2));
       $('#pn').text("Porcentaje de Negativos :"+(msg[3]/300).toFixed(2));
       $('#pe').text("Porcentaje de Error :"+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
-      $('#pm').text("Precision del modelo :"+(msg[4]).toFixed(2));
+      $('#pm').text("Precision del modelo :"+(msg[4]/1).toFixed(2));
     },
     error :function(err){console.log(err)}
   })
