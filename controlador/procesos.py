@@ -101,7 +101,6 @@ def literal1(n):
   
   return rs
 ##########################################################
-"""
 def topicmodeling():
   print("Topic Modeling")
   import gensim 
@@ -111,18 +110,24 @@ def topicmodeling():
 
   import gensim.corpora as corpora
   nltk.download('wordnet')
-
+  tweet = tw.obtenerTweets(12) 
+  tweet = nl.minusculas(tweet)
+  tweet = nl.eliminarce(tweet)
+  tweet = nl.tokenizar(tweet)
+  tweet = nl.qstopwords(tweet,1)
+  tweet = nl.stemmer(tweet)
+  
   id2word = corpora.Dictionary(tweet)
   corpus = [id2word.doc2bow(text) for text in tweet]
 
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=16, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=10, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
 
   for idx, topic in lda_model.print_topics(-1):
       print('Topic: {} Word: {}'.format(idx, topic))
 
   vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
   pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
-"""
+
 ###############LITERAL 2###############################
 def literal2():
   print("literal 2")
