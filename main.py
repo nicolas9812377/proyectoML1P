@@ -1,5 +1,5 @@
 from controlador import procesos as p  
-p.topicmodeling()
+#p.topicmodeling()
 
 from flask import Flask, render_template,request
 import json 
