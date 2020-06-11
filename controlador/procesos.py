@@ -109,7 +109,7 @@ def topicmodeling(n):
   from nltk.corpus import stopwords
   import gensim.corpora as corpora
   nltk.download('wordnet')
-  #nltk.download('wordcloud')
+  nltk.download('wordcloud')
   from wordcloud import WordCloud
   import matplotlib.pyplot as plt
   tpm = []
