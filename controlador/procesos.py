@@ -109,7 +109,7 @@ def topicmodeling(n):
   from nltk.corpus import stopwords
   import gensim.corpora as corpora
   nltk.download('wordnet')
-  nltk.download('wordcloud')
+  
   from wordcloud import WordCloud
   import matplotlib.pyplot as plt
   tpm = []
@@ -162,7 +162,7 @@ def topicmodeling(n):
 
   tpm.append(est1)
   tpm.append(cl1)
-  pyLDAvis.enable_notebook()
+  #pyLDAvis.enable_notebook()
   vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
   pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
   for i in range(10):
