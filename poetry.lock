@@ -594,7 +594,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.34.2"
 
 [metadata]
-content-hash = "1dd4373e94d36aafdf8bca410d2c7bfbc697fb14507ac56a0acb7c8f3182f8e6"
+content-hash = "13677165e07382cea650ffcc0bf7155dc24c2f926ad5b5c860fcab3c43acbb03"
 python-versions = "^3.8"
 
 [metadata.hashes]
