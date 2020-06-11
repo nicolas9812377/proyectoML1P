@@ -16,7 +16,8 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/twitter.ico') }}">
+  <link rel="icon" type="image/gif" href="{{ url_for('static', filename='img/twitter.ico') }}">
 </head>
 
 <body onload="cargar()">
@@ -42,7 +43,7 @@
                     <li class="current"><a href="#intro">Inicio</a></li>
                     <li><a href="#parte1">Parte 1</a></li>
                     <li><a href="#parte2">Parte 2</a></li>
-                    <li><a href="#parte3">Parte 3</a></li>                    
+                    <li><a href="#parte3">Parte 3</a></li>   <li><a href="#topicmodeling">Topic Modeling</a></li>
                 </ul>
             </div>
         </div>
@@ -184,7 +185,44 @@ encontrar directamente el sentimiento de un nuevo tweet basado en su corpus.</p>
             </div>
         </div>
     </section>
-    <!-- Team -->
+    
+      <section id="topicmodeling" class="home-section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="section-heading">
+                        <h2>Topic Modeling</h2>
+                        <div class="heading-line"></div>
+                        <p> Algoritmo LDA </p>
+                      </div>
+                     <input type="number" min="10" id="cantidadtpm" name="cantidadtpm" placeholder="Ingrese Cantidad de Tweets" required="required">
+                        <input type= "button" id="boton2" value="Consultar" onclick="calculartpm()" >
+                        <div id='loadingmessage4' style='display:none'>
+       <img src='{{ url_for('static', filename='img/ajax-loader.gif') }}'/>
+       </div><br>
+<div id="stpm" style="display:none">
+                        <label>Tabla de Topics</label>
+                        <table id="ttpm" class="table table-borderless" style="text-align:justify;">
+                        <thead >
+                        <tr>
+                        <th>#</th><th>Words</th><th>Polaridad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                        </table>
+
+<label id ="tpmp">Porcentaje de Positivos : 0</label><br>
+<label id="tpmn">Porcentaje de Negativos : 0</label><br>
+<label id="tpmne">Porcentaje de Neutros : 0</label><br>
+<label id="tpmt">Total de Topics : 0</label> <a href="/grafica">Resumen</a><br>
+  </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Footer -->
     <footer>

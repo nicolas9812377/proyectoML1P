@@ -6,6 +6,12 @@ from controlador import modulo_tweets as tw
 from controlador import modulo_lec_escri as lc
 from controlador import modulo_maquinavec as mv
 from textblob import TextBlob 
+import gensim 
+import nltk
+import pyLDAvis
+import pyLDAvis.gensim 
+import gensim.corpora as corpora
+nltk.download('wordnet')
 from controlador import nlp as nl
 
 ##############CALCULADOR########################
@@ -101,16 +107,10 @@ def literal1(n):
   
   return rs
 ##########################################################
-def topicmodeling():
+def topicmodeling(n):
+  tpm = []
   print("Topic Modeling")
-  import gensim 
-  import nltk
-  import pyLDAvis
-  import pyLDAvis.gensim  # don't skip this
-
-  import gensim.corpora as corpora
-  nltk.download('wordnet')
-  tweet = tw.obtenerTweets(12) 
+  tweet = tw.obtenerTweets(n) 
   tweet = nl.minusculas(tweet)
   tweet = nl.eliminarce(tweet)
   tweet = nl.tokenizar(tweet)
@@ -122,12 +122,40 @@ def topicmodeling():
 
   lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=10, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
 
+  topics = []
   for idx, topic in lda_model.print_topics(-1):
-      print('Topic: {} Word: {}'.format(idx, topic))
+    tp = topic.split('+')
+    tp = [w.split('*') for w in tp] 
+    
+    topics.append(tp)
 
+  tpm.append(topics)
+
+  temp = []
+  for top in topics:
+    t = []
+    for j in top:
+      t.append(j[1].replace('"',''))
+    temp.append(t)
+  print(temp)
+  #Obteniendo Diccionarios
+  dicposi = lc.leerTxt('modelo/dic_posi.txt')
+  dicneg = lc.leerTxt('modelo/dic_neg.txt')
+  
+  print("***************Jaccard Topics***************")
+  #Jaccard de Negativos
+  negativo = ja.vectores(temp,dicneg)
+  #Jaccard de Positivos
+  positivo = ja.vectores(temp,dicposi)
+  #Obteniendo Resultados
+  est1, cl1 = categorizar(positivo,negativo)
+
+  tpm.append(est1)
+  tpm.append(cl1)
   vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
   pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
 
+  return tpm
 ###############LITERAL 2###############################
 def literal2():
   print("literal 2")

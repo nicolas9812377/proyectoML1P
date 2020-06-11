@@ -1,10 +1,8 @@
 from controlador import procesos as p  
-#p.topicmodeling()
 
 from flask import Flask, render_template,request
 import json 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello_world(): 
@@ -32,6 +30,11 @@ def recibirtweet():
     rs = p.literal3(str(request.values.get('tweet')))
   return json.dumps(rs),{'Content-Type': 'application/json'}
 
+@app.route('/topicm',methods=['GET','POST'])
+def tpm():
+  if request.method == 'POST':
+    rs = p.topicmodeling(int(request.values.get('canttpm')))
+  return json.dumps(rs),{'Content-Type': 'application/json'}
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=3000,debug=True)     
- 

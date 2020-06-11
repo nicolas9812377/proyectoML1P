@@ -1,4 +1,6 @@
 tiempo
+covid
+riesgo
 bajo
 varios
 tipo
@@ -1348,6 +1350,8 @@ paralizado
 egoísmo
 rarezas
 discrepancia
+pandemia
+coronavirus
 venenoso
 vago
 pésimo

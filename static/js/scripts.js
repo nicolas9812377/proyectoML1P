@@ -113,4 +113,32 @@ function cargar(){
     },
     error :function(err){console.log(err)}
   })
+  
+}
+
+function calculartpm(){
+   $('#loadingmessage4').show();
+   $('#boton2').attr("disabled", true);
+  $.ajax({
+    url:'/topicm',
+    data:{canttpm : $('#cantidadtpm').val()},
+    type: 'POST',
+    success: function(msg){
+      $('#loadingmessage4').hide();
+      $('#boton2').attr("disabled", false);
+
+      let tabla = ''
+      for(let i = 0; i < msg[0].length; i++ ){
+        tabla += `<tr><td>${i+1}</td><td>${msg[0][i]}</td><td>${msg[2][i]}</td></tr>`; 
+      }
+      $('#stpm').show();
+      $('#ttpm tbody tr').remove();
+      $('#ttpm').append(tabla);
+      $('#tpmp').text('Porcentaje de Positivos : '+msg[1][0]);
+      $('#tpmn').text('Porcentaje de Negativos : ' +msg[1][1]);
+      $('#tpmne').text('Porcentaje de Neutros : ' +msg[1][2]);
+      $('#tpmt').text('Total de Topics : ' +msg[1][3]+' ');
+    },
+    error :function(err){console.log(err)}
+  })
 }

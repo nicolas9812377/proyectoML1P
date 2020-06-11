@@ -10,7 +10,7 @@ def minusculas(tit):
   return tit
 def eliminarce(tit):
   for x,temp in enumerate(tit):
-    tit[x] = re.sub('[^A-Za-z0-9áéíóúñ]|http\S+', ' ', temp)
+    tit[x] = re.sub('[^A-Za-záéíóúñ]|http\S+', ' ', temp)
     #limpiar caracteres 
   return tit
 def tokenizar(tit):
@@ -31,10 +31,10 @@ def stemmer(tit):
 #####################STOPWORDS#######################
 def qstopwords(tit,cont):
   c = 0#contador
-  n4 = stopwords.words('spanish')#vector de stopwords
-  #n4.append('https')
-  #n4.append('t')
-  #n4.append('co')
+  n4 = stopwords.words('spanish','english')#vector de stopwords
+  n4.append('gt')
+  n4.append('oms')
+  n4.append('así')
   if(cont > 0):#compara el contador en caso de ser mayor sigue eliminando las stopwords
     for word in tit:#recorre vector
       for w in word:#recorre posicions del vector
