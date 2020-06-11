@@ -141,7 +141,7 @@ function calculartpm(){
       var imag = '<table style="text-align:center">';
       for(let i = 0 ; i<10 ; i+=2){
         imag += `<tr><th>Topic # ${i+1}</th><th>Topic # ${i+2}</th><tr>`;
-        imag += `<tr><td style="padding: 15px"><img src='/static/wordcloud/${i}.png'></td><td style="padding: 15px"><img src='/static/wordcloud/${i+1}.png'></td><tr>`;
+        imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;
       }
       imag+='</table>'
       $('#imgtp').html(imag);

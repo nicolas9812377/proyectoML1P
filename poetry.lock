@@ -37,10 +37,10 @@ description = "The AWS SDK for Python"
 name = "boto3"
 optional = false
 python-versions = "*"
-version = "1.14.0"
+version = "1.14.1"
 
 [package.dependencies]
-botocore = ">=1.17.0,<1.18.0"
+botocore = ">=1.17.1,<1.18.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.3.0,<0.4.0"
 
@@ -50,7 +50,7 @@ description = "Low-level, data-driven core of boto 3."
 name = "botocore"
 optional = false
 python-versions = "*"
-version = "1.17.0"
+version = "1.17.1"
 
 [package.dependencies]
 docutils = ">=0.10,<0.16"
@@ -649,7 +649,7 @@ numpy = ">=1.6.1"
 pillow = "*"
 
 [metadata]
-content-hash = "078651493284d9e29076e7646e649c255bb92d73109023d1fea091661d5bb967"
+content-hash = "e6371bf2dc708dff8ff1c2a23e42e2e97f5b2057bb9e9cb02681bae2c4e92305"
 python-versions = "^3.8"
 
 [metadata.hashes]
@@ -657,8 +657,8 @@ appdirs = ["7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41", "
 atomicwrites = ["6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197", "ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"]
 attrs = ["08a96c641c3a74e44eb59afb61a24f2cb9f4d7188748e76ba4bb5edfa3cb7d1c", "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"]
 boto = ["147758d41ae7240dc989f0039f27da8ca0d53734be0eb869ef16e3adcfa462e8", "ea0d3b40a2d852767be77ca343b58a9e3a4b00d9db440efb8da74b4e58025e5a"]
-boto3 = ["cd2b8eb13a10ccf9e019be437928d691424b02ebd59849be33bdcf0516d71443", "d5a5e65d54904845964b789450b826e3d0967fca4032b8cb677d3fb59ac6cf0a"]
-botocore = ["22fbb2745f72e8da011d7d358844adf76c12acb9360b1418b876caa589c973bd", "381601ad6e49c8ee87c5e4358657278f740b91bb926464c74dc57d3effbea63b"]
+boto3 = ["aa8370f4ba58ffc1d68960fe42689dd716e8159f27f6b86b2211c130d19f9724", "acaabe139ac605cfd4bf22f5edc15dbdcad20a020284d168421ab37df21a6319"]
+botocore = ["7d829b162e550b201ea07600862fccbbdc028cf88a111338f964e424b0e1c562", "db21cc82f1d6e76aec91d8801e17fa701019805268914b2d0d538a2344fba74a"]
 certifi = ["5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1", "9cd41137dc19af6a5e03b630eefe7d1f458d964d406342dd3edf625839b944cc"]
 chardet = ["84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae", "fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"]
 click = ["d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a", "dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"]
