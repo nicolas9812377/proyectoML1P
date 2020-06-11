@@ -1,5 +1,4 @@
-import numpy as np
-
+import numpy as np, pandas as pd
 from controlador import modulo_jaccard as ja
 from controlador import modulo_coseno as cs
 from controlador import modulo_tweets as tw
@@ -154,10 +153,11 @@ def topicmodeling(n):
   tpm.append(est1)
   tpm.append(cl1)
   try:
+    pyLDAvis.enable_notebook()
     vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
     pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
   except:
-    pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
+    print('corregido')
   return tpm
 ###############LITERAL 2###############################
 def literal2():
