@@ -153,9 +153,11 @@ def topicmodeling(n):
 
   tpm.append(est1)
   tpm.append(cl1)
-  vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
-  #pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
-
+  try:
+    vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
+    pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
+  except:
+    pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
   return tpm
 ###############LITERAL 2###############################
 def literal2():
