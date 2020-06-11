@@ -20,4 +20,5 @@ venv-run = "^0.0.0"
 virtualenv = "^20.0"
 pyldavis = "^2.1"
 pandas = "^1.0"
+wordcloud = "^1.7"
 [tool.poetry.dev-dependencies]

@@ -138,6 +138,13 @@ function calculartpm(){
       $('#tpmn').text('Porcentaje de Negativos : ' +msg[1][1]);
       $('#tpmne').text('Porcentaje de Neutros : ' +msg[1][2]);
       $('#tpmt').text('Total de Topics : ' +msg[1][3]+' ');
+      var imag = '<table style="text-align:center">';
+      for(let i = 0 ; i<10 ; i+=2){
+        imag += `<tr><th>Topic # ${i+1}</th><th>Topic # ${i+2}</th><tr>`;
+        imag += `<tr><td style="padding: 15px"><img src='/static/wordcloud/${i}.png'></td><td style="padding: 15px"><img src='/static/wordcloud/${i+1}.png'></td><tr>`;
+      }
+      imag+='</table>'
+      $('#imgtp').html(imag);
     },
     error :function(err){console.log(err)}
   })

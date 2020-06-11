@@ -106,13 +106,23 @@ def topicmodeling(n):
   import nltk
   import pyLDAvis
   import pyLDAvis.gensim 
+  from nltk.corpus import stopwords
   import gensim.corpora as corpora
   nltk.download('wordnet')
+  nltk.download('wordcloud')
+  from wordcloud import WordCloud
+  import matplotlib.pyplot as plt
   tpm = []
+  n4 = stopwords.words('spanish','english')
+  n4.append('gt')
+  n4.append('oms')
+  n4.append('así')
+  n4.append('aquí')
   print("Topic Modeling")
   tweet = tw.obtenerTweets(n) 
   tweet = nl.minusculas(tweet)
   tweet = nl.eliminarce(tweet)
+  tt = tweet[:]
   tweet = nl.tokenizar(tweet)
   tweet = nl.qstopwords(tweet,1)
   tweet = nl.stemmer(tweet)
@@ -155,7 +165,9 @@ def topicmodeling(n):
   pyLDAvis.enable_notebook()
   vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
   pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
-
+  for i in range(10):
+    wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
+    wordcloud.to_file("static/wordcloud/"+str(i)+".png")
   return tpm
 ###############LITERAL 2###############################
 def literal2():
