@@ -6,12 +6,7 @@ from controlador import modulo_tweets as tw
 from controlador import modulo_lec_escri as lc
 from controlador import modulo_maquinavec as mv
 from textblob import TextBlob 
-import gensim 
-import nltk
-import pyLDAvis
-import pyLDAvis.gensim 
-import gensim.corpora as corpora
-nltk.download('wordnet')
+
 from controlador import nlp as nl
 
 ##############CALCULADOR########################
@@ -108,6 +103,12 @@ def literal1(n):
   return rs
 ##########################################################
 def topicmodeling(n):
+  import gensim 
+  import nltk
+  import pyLDAvis
+  import pyLDAvis.gensim 
+  import gensim.corpora as corpora
+  nltk.download('wordnet')
   tpm = []
   print("Topic Modeling")
   tweet = tw.obtenerTweets(n) 
