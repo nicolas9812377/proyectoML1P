@@ -8,4 +8,4 @@ virtualenv == 20.0.21
 gensim == 3.8
 pyldavis == 2.1
 wordcloud == 1.7
-ipython == 7.15.0
+ipython == 2.0.0
