@@ -1,5 +1,10 @@
 from controlador import procesos as p  
 
+#p.literal1(300)
+#p.literal2()
+#p.literal3("jj")
+#p.topicmodeling(10)
+#"""
 from flask import Flask, render_template,request
 import json 
 app = Flask(__name__)
@@ -38,3 +43,4 @@ def tpm():
 
 if __name__ == '__main__':
   app.run(host = '0.0.0.0')     
+#"""

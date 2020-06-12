@@ -317,6 +317,7 @@ abundancia
 crédito
 fresco
 cura
+vacuna
 dinámica
 feliz
 defensores
@@ -1122,9 +1123,7 @@ adinerado
 altruista
 suavizar
 crujiente
-feat
 exaltado
-soft
 desprendido
 aurora
 gozo
@@ -1291,7 +1290,6 @@ rebasar
 admiradora
 incisivo
 magníficamente
-fast
 survival
 bonificaciones
 complacido
@@ -1308,7 +1306,6 @@ saborear
 idílico
 sabiamente
 pacientemente
-happy
 enhorabuena
 espaldarazo
 grácil
@@ -1326,11 +1323,7 @@ amistosamente
 agraciado
 important
 elegantemente
-works
 revolucionar
-modern
-lucio
-fun
 sagaz
 reintegrado
 maravillosamente
@@ -1352,7 +1345,6 @@ ahínco
 vencejo
 subvencionado
 redimir
-sweet
 sonreír
 cortejar
 caballerosidad
@@ -1380,15 +1372,12 @@ enderezar
 invaluable
 hilarante
 perspicaz
-geek
 entretiene
-easy
 consolar
 avalar
 indulgente
 avidez
 magro
-loable
 asombrosamente
 diligente
 golosina
@@ -1399,9 +1388,6 @@ endeudado
 reestructurado
 individualizado
 franquear
-cure
-trust
-talent
 alcanzable
 cuantioso
 revolucionado
@@ -1410,9 +1396,7 @@ available
 fragante
 instructivo
 benévolo
-enough
 durable
-saint
 excelentemente
 elogiar
 pros
@@ -1428,13 +1412,10 @@ esperanzador
 esperanza
 encomiable
 cautivar
-fine
 atestiguar
 afectuosamente
 fiar
-award
 apuntalar
-strong
 afirmativamente
 advanced
 admirablemente
@@ -1444,12 +1425,9 @@ calurosamente
 barriendo
 ardientemente
 aleteo
-perfect
 sentenciar
 privilegiar
 efusión
-win
-magic
 lustroso
 aplaudir
 alentador

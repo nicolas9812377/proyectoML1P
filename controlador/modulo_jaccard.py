@@ -8,7 +8,5 @@ def vectores(tit,palabras):
 def jaccard_similitud(list1, list2):
   s1 = set(list1)
   s2 = set(list2)
-    #print((s1.intersection(s2)))
-    #print(len(s1))
   return len(s1.intersection(s2)) / len(s1.union(s2))
 ###################################################

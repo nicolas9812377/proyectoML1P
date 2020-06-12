@@ -20,12 +20,8 @@ def leercsv(nombre):
 def leerTxt(nombre):
   f = open (nombre,'r')
   palabrasneg = []
-  temp = []
   for linea in f.readlines():
-    temp.append(linea.strip('\n'))
-  palabrasneg.append(temp)
-  palabrasneg = nl.stemmer(palabrasneg)
-  palabrasneg = palabrasneg[0]
+    palabrasneg.append(linea.strip('\n'))
   f.close()
   return palabrasneg
 ######################################

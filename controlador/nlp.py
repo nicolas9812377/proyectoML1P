@@ -31,10 +31,14 @@ def stemmer(tit):
 #####################STOPWORDS#######################
 def qstopwords(tit,cont):
   c = 0#contador
-  n4 = stopwords.words('spanish','english')#vector de stopwords
+  n4 = stopwords.words('spanish')#vector de stopwords
+  n4 += stopwords.words('english')
   n4.append('gt')
   n4.append('oms')
   n4.append('así')
+  n4.append('aquí')
+  n4.append('cómo')
+  #print(n4)
   if(cont > 0):#compara el contador en caso de ser mayor sigue eliminando las stopwords
     for word in tit:#recorre vector
       for w in word:#recorre posicions del vector

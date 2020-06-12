@@ -30,8 +30,9 @@ def categorizar(positivo,negativo):
       temp1.append('Negativo')
       contneg +=1
 
-  #for i in zip(total,temp1):
-    #print(i)
+  for i in zip(total,temp1):
+    print(i)
+  
   print("Porcentaje de Positivos: ",round(contpos/len(total),2))
   print("Porcentaje de Negativos: ",round(contneg/len(total),2))
   print("Porcentaje de Neutros: ",round(contneutro/len(total),2))
@@ -51,7 +52,6 @@ def literal1(n):
   tweet = nl.eliminarce(tweet)
   tweet = nl.tokenizar(tweet)
   tweet = nl.qstopwords(tweet,1)
-  tweet = nl.stemmer(tweet)
   #Obteniendo Diccionarios
   dicposi = lc.leerTxt('modelo/dic_posi.txt')
   dicneg = lc.leerTxt('modelo/dic_neg.txt')
@@ -110,11 +110,13 @@ def topicmodeling(n):
   from wordcloud import WordCloud
 
   tpm = []
-  n4 = stopwords.words('spanish','english')
+  n4 = stopwords.words('spanish')
+  n4 += stopwords.words('english')
   n4.append('gt')
   n4.append('oms')
   n4.append('así')
   n4.append('aquí')
+
   print("Topic Modeling")
   tweet = tw.obtenerTweets(n) 
   tweet = nl.minusculas(tweet)
@@ -122,18 +124,16 @@ def topicmodeling(n):
   tt = tweet[:]
   tweet = nl.tokenizar(tweet)
   tweet = nl.qstopwords(tweet,1)
-  tweet = nl.stemmer(tweet)
   
   id2word = corpora.Dictionary(tweet)
   corpus = [id2word.doc2bow(text) for text in tweet]
 
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=10, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=5, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
 
   topics = []
   for idx, topic in lda_model.print_topics(-1):
     tp = topic.split('+')
     tp = [w.split('*') for w in tp] 
-    
     topics.append(tp)
 
   tpm.append(topics)
@@ -142,13 +142,15 @@ def topicmodeling(n):
   for top in topics:
     t = []
     for j in top:
-      t.append(j[1].replace('"',''))
+      t.append(j[1].replace('"','').strip())
     temp.append(t)
+
   print(temp)
+
   #Obteniendo Diccionarios
   dicposi = lc.leerTxt('modelo/dic_posi.txt')
   dicneg = lc.leerTxt('modelo/dic_neg.txt')
-  
+
   print("***************Jaccard Topics***************")
   #Jaccard de Negativos
   negativo = ja.vectores(temp,dicneg)
@@ -161,13 +163,14 @@ def topicmodeling(n):
   tpm.append(cl1)
   try:
     pyLDAvis.enable_notebook()
+  except:
     vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
     pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
-  except:
-      print()
-  for i in range(10):
+      
+  for i in range(5):
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
     wordcloud.to_file("static/wordc/"+str(i)+".png")
+
   return tpm
 ###############LITERAL 2###############################
 def literal2():
@@ -188,7 +191,7 @@ def literal2():
   return mv.maqvec(bolsa,etiquetado[:1000])
 #######################################################
 
-##############LITERAL 3###########################
+##############LITERAL ###########################
 def literal3(frase):
   temp = []
   print("literal 3")
