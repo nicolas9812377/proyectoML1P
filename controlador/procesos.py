@@ -161,8 +161,9 @@ def topicmodeling(n):
 
   tpm.append(est1)
   tpm.append(cl1)
-  pyLDAvis.enable_notebook()
+  
   try:
+    pyLDAvis.enable_notebook()
     vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
     pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html') 
   except:
