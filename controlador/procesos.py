@@ -111,7 +111,7 @@ def topicmodeling(n):
   nltk.download('wordnet')
   
   from wordcloud import WordCloud
-  import matplotlib.pyplot as plt
+
   tpm = []
   n4 = stopwords.words('spanish','english')
   n4.append('gt')
