@@ -1,4 +1,4 @@
-import numpy as np,pandas as pd
+import numpy as np
 from controlador import modulo_jaccard as ja
 from controlador import modulo_coseno as cs
 from controlador import modulo_tweets as tw
