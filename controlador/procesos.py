@@ -103,7 +103,6 @@ def literal1(n):
 ##########################################################
 def topicmodeling(n):
   import gensim
-  import IPython
   import pyLDAvis
   import pyLDAvis.gensim 
   from nltk.corpus import stopwords
