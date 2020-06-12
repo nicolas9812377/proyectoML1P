@@ -104,7 +104,7 @@ def literal1(n):
 def topicmodeling(n):
   import gensim
   import pyLDAvis
-  import pyLDAvis.gensim 
+  from pyLDAvis import gensim
   from nltk.corpus import stopwords
   import gensim.corpora as corpora  
   from wordcloud import WordCloud
@@ -164,7 +164,7 @@ def topicmodeling(n):
   
   #try:
   #pyLDAvis.enable_notebook()
-  vis = pyLDAvis.prepare(lda_model, corpus, id2word,sort_topics=False)
+  vis = gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
   pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html') 
   #except:
   #  print()
