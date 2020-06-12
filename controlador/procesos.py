@@ -102,14 +102,12 @@ def literal1(n):
   return rs
 ##########################################################
 def topicmodeling(n):
-  import gensim 
-  import nltk
+  import gensim
+  import IPython
   import pyLDAvis
   import pyLDAvis.gensim 
   from nltk.corpus import stopwords
-  import gensim.corpora as corpora
-  nltk.download('wordnet')
-  
+  import gensim.corpora as corpora  
   from wordcloud import WordCloud
 
   tpm = []
