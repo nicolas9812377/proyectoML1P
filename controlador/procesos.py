@@ -127,12 +127,10 @@ def topicmodeling(n):
   
   #Diccionario
   id2word = corpora.Dictionary(tweet)
-  for (token, uid) in id2word.token2id.items():
-        id2word.id2token[uid] = token
   #Bolsa de palabras
   corpus = [id2word.doc2bow(text) for text in tweet]
 
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=6,alpha='auto')
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,alpha='auto')
 
   topics = []
   for idx, topic in lda_model.print_topics(-1):
@@ -166,13 +164,10 @@ def topicmodeling(n):
   tpm.append(est1)
   tpm.append(cl1)
   
-  import warnings
-  warnings.simplefilter("ignore", DeprecationWarning)
-
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
 
-  for i in range(6):
+  for i in range(4):
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
     wordcloud.to_file("static/wordc/"+str(i)+".png")
 
