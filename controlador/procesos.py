@@ -165,12 +165,11 @@ def topicmodeling(n):
   tpm.append(est1)
   tpm.append(cl1)
 
-  import warnings
-  warnings.simplefilter("ignore", DeprecationWarning)
-  
+  """
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
   """
+  
   #calculo de grupos
   h = int(n/4)
   temp = 0 
@@ -185,7 +184,7 @@ def topicmodeling(n):
     #para saber donde empieza el otro grupo y donde termina
     temp = h
     h+=h
-  """
+  
   return tpm
 ###############LITERAL 2###############################
 def literal2():
