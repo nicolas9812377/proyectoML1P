@@ -141,13 +141,11 @@ function calculartpm(){
       var imag = '<table style="text-align:center">';
       for(let i = 0 ; i<4 ; i+=2){
         imag += `<tr><th>Topic # ${i+1}</th><th>Topic # ${i+2}</th><tr>`;
-        imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;
-        
-        
+        imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;        
       }
       imag+='</table>'
       $('#imgtp').html(imag);
-    },
+    },timeout : 30000,
     error :function(err){console.log(err)}
   })
 }
