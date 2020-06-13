@@ -42,5 +42,5 @@ def tpm():
   return json.dumps(rs),{'Content-Type': 'application/json'}
 
 if __name__ == '__main__':
-  app.run(host = '0.0.0.0')     
+  app.run()     
 #"""
