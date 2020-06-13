@@ -168,10 +168,20 @@ def topicmodeling(n):
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
 
-  for i in range(4):
-    wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
+  #calculo de grupos
+  h = int(n/4)
+  temp = 0 
+  for i in range(3):
+    print(i)
+    #unir Tweets
+    text = " ".join(review for review in tt[temp:h])
+    #wordcloud
+    wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
+    #Guardar Imagen
     wordcloud.to_file("static/wordc/"+str(i)+".png")
-
+    #para saber donde empieza el otro grupo y donde termina
+    temp = h
+    h+=h
   return tpm
 ###############LITERAL 2###############################
 def literal2():

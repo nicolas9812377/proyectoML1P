@@ -74,7 +74,12 @@ function graficar(){
       gr('container',datos,'Similitud Jaccard');
       gr('container1',datos1,'Similitud Coseno');
     },timeout : 300000,
-    error :function(err){console.log(err)}
+    error :function(err){
+      $('#loadingmessage').hide();
+      $('#boton').attr("disabled", false);
+      alert('Ha ocurrido un error');
+      console.log(err);
+      }
   })
 }
 
@@ -93,7 +98,9 @@ function consulta(){
       $('#subj').text('Subjetividad: ' +msg[1]);
       $('#tweet').val('');
     },
-    error :function(err){console.log(err)}
+    error :function(err){
+      alert('Ha ocurrido un error');
+      console.log(err);}
   })
 }
 
@@ -111,7 +118,9 @@ function cargar(){
       $('#pe').text("Porcentaje de Error : "+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
       $('#pm').text("Precision del modelo : "+(msg[4]/1).toFixed(2));
     },
-    error :function(err){console.log(err)}
+    error :function(err){
+      alert('Ha ocurrido un error');
+      console.log(err);}
   })
   
 }
@@ -145,7 +154,12 @@ function calculartpm(){
       }
       imag+='</table>'
       $('#imgtp').html(imag);
-    },timeout : 30000,
-    error :function(err){console.log(err)}
+    },timeout : 1000,
+    error :function(err){
+      $('#loadingmessage4').hide();
+      $('#boton2').attr("disabled", false);
+      alert('Ha ocurrido un error');
+      console.log(err)
+      }
   })
 }
