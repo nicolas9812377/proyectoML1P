@@ -98,9 +98,7 @@ function consulta(){
       $('#subj').text('Subjetividad: ' +msg[1]);
       $('#tweet').val('');
     },
-    error :function(err){
-      alert('Ha ocurrido un error');
-      console.log(err);}
+    error :function(err){console.log(err);}
   })
 }
 
@@ -118,9 +116,7 @@ function cargar(){
       $('#pe').text("Porcentaje de Error : "+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
       $('#pm').text("Precision del modelo : "+(msg[4]/1).toFixed(2));
     },
-    error :function(err){
-      alert('Ha ocurrido un error');
-      console.log(err);}
+    error :function(err){console.log(err);}
   })
   
 }
@@ -136,7 +132,7 @@ function calculartpm(){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
 
-      let tabla = ''
+      let tabla = '';
       for(let i = 0; i < msg[0].length; i++ ){
         tabla += `<tr><td>${i+1}</td><td>${msg[0][i]}</td><td>${msg[2][i]}</td></tr>`; 
       }
@@ -152,14 +148,14 @@ function calculartpm(){
         imag += `<tr><th>Topic # ${i+1}</th><th>Topic # ${i+2}</th><tr>`;
         imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;        
       }
-      imag+='</table>'
+      imag+='</table>';
       $('#imgtp').html(imag);
     },timeout : 1000,
-    error :function(request, status, error){
+    error :function(err){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
-      alert(request.responseText);
-      console.log(request.responseText);
+      alert('Ha ocurrido un error');
+      console.log(err);
       }
   })
 }
