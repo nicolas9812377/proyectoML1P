@@ -119,6 +119,7 @@ def topicmodeling(n):
   n4.append('aquí')
 
   print("Topic Modeling")
+  #nlp
   tweet = tw.obtenerTweets(n) 
   tweet = nl.minusculas(tweet)
   tweet = nl.eliminarce(tweet)
@@ -162,13 +163,13 @@ def topicmodeling(n):
   #Obteniendo Resultados
   est1, cl1 = categorizar(positivo,negativo)
 
+  #Vector para enviar a al web
   tpm.append(est1)
   tpm.append(cl1)
 
-  """
+  #Preparando Visualizacion
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
-  """
   
   #calculo de grupos
   h = int(n/4)

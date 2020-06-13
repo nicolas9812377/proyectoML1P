@@ -77,7 +77,6 @@ function graficar(){
     error :function(err){
       $('#loadingmessage').hide();
       $('#boton').attr("disabled", false);
-      alert('Ha ocurrido un error');
       console.log(err);
       }
   })
@@ -154,7 +153,6 @@ function calculartpm(){
     error :function(err){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
-      alert('Ha ocurrido un error');
       console.log(err);
       }
   })

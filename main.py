@@ -1,10 +1,11 @@
 from controlador import procesos as p  
-
+#Para impresion solo en consola
 #p.literal1(100)
 #p.literal2()
 #p.literal3("jj")
 #p.topicmodeling(10)
-#"""
+#############
+
 from flask import Flask, render_template,request
 import json 
 app = Flask(__name__)
@@ -43,4 +44,3 @@ def tpm():
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0')     
-#"""
