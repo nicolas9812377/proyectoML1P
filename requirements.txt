@@ -6,7 +6,7 @@ venv-run == 0.0.0
 gunicorn == 20.0
 virtualenv == 20.0.21
 gensim == 3.8
-pyldavis == 2.1
+pyldavis == 2.1.2
 wordcloud == 1.7
 ipython==7.4.0
 ipython-genutils==0.2.0

@@ -18,7 +18,7 @@ textblob = "^0.15.3"
 tweepy = "^3.8"
 venv-run = "^0.0.0"
 virtualenv = "^20.0"
-pyldavis = "^2.1"
+pyLDAvis = "^2.1"
 wordcloud = "^1.7"
 ipython = "^7.15"
 [tool.poetry.dev-dependencies]
