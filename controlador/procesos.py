@@ -70,7 +70,7 @@ def literal1(n):
   tweetneg = []
   tweetneg.append(dicneg)
   tweetneg = tweetneg+tweet
-  invertit = nl.inverted(tweet,dicneg)
+  invertit = nl.inverted(tweetneg,dicneg)
   df=cs.df(invertit)
   idf=cs.idf(df,len(invertit[0]))
   wtf=cs.wtf(invertit)
@@ -78,12 +78,11 @@ def literal1(n):
   modulo= cs.modulo(tfidf)
   longnorneg= cs.longnorm(tfidf,modulo)
   vectorneg = cs.vectordistance(longnorneg)
-  
   #Coseno de Positivos
   tweetpos =[]
   tweetpos.append(dicposi)
   tweetpos = tweetpos+tweet
-  invertit = nl.inverted(tweet,dicposi)
+  invertit = nl.inverted(tweetpos,dicposi)
   df=cs.df(invertit)
   idf=cs.idf(df,len(invertit[0]))
   wtf=cs.wtf(invertit)
@@ -91,8 +90,10 @@ def literal1(n):
   modulo= cs.modulo(tfidf)
   longnorpos= cs.longnorm(tfidf,modulo)
   vectorpos = cs.vectordistance(longnorpos)
-  #Obteniendo Resultados
+  #Obteniendo Resultados, columnas = vectorneg[0,1:]
+  # filas = vectorneg[1:,0]
   est, cl = categorizar(vectorpos[1:,0],vectorneg[1:,0])
+
   rs.append(est)
   rs.append(cl1)
   rs.append(cl)
@@ -163,18 +164,12 @@ def topicmodeling(n):
   tpm.append(est1)
   tpm.append(cl1)
   
-  from pyLDAvis import sklearn as sklearn_lda
-  import pickle 
-  LDAvis_prepared = sklearn_lda.prepare(lda_model, id2word, corpus)
-  with open('templates/lda', 'w') as f:
-    pickle.dump(LDAvis_prepared, f)
-        
-  # load the pre-prepared pyLDAvis data from disk
-  with open('templates/lda') as f:
-    LDAvis_prepared = pickle.load(f)
-  
-  pyLDAvis.save_html(LDAvis_prepared, 'templates/lda_topic.html')
-       
+  import warnings
+  warnings.simplefilter("ignore", DeprecationWarning)
+
+  vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word,sort_topics=False)
+  pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
+
   for i in range(6):
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
     wordcloud.to_file("static/wordc/"+str(i)+".png")
