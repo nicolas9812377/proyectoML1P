@@ -167,8 +167,8 @@ def topicmodeling(n):
   import warnings
   warnings.simplefilter("ignore", DeprecationWarning)
 
-  #pyLDAvis.enable_notebook()
-  #vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word,sort_topics=False)
+  
+  vis = pyLDAvis.gensim._extract_data(lda_model,corpus,id2word)
   pyLDAvis.save_html(lda_model,'templates/LDA_Visualization.html')
 
   for i in range(6):
