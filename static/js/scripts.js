@@ -149,10 +149,11 @@ function calculartpm(){
       }
       imag+='</table>';
       $('#imgtp').html(imag);
-    },timeout : 1000,
+    },timeout : 300000,
     error :function(err){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
+      alert(err.message);
       console.log(err);
       }
   })
