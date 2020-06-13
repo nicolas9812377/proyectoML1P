@@ -155,11 +155,11 @@ function calculartpm(){
       imag+='</table>'
       $('#imgtp').html(imag);
     },timeout : 1000,
-    error :function(err){
+    error :function(request, status, error){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
-      alert(err.message);
-      console.log(err);
+      alert(request.responseText);
+      console.log(request.responseText);
       }
   })
 }
