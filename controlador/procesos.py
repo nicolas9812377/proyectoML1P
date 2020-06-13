@@ -164,6 +164,9 @@ def topicmodeling(n):
 
   tpm.append(est1)
   tpm.append(cl1)
+
+  import warnings
+  warnings.simplefilter("ignore", DeprecationWarning)
   
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
