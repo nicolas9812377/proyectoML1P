@@ -167,9 +167,9 @@ def topicmodeling(n):
   import warnings
   warnings.simplefilter("ignore", DeprecationWarning)
 
-  pyLDAvis.enable_notebook()
-  vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word,sort_topics=False)
-  pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
+  #pyLDAvis.enable_notebook()
+  #vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word,sort_topics=False)
+  pyLDAvis.save_html(lda_model,'templates/LDA_Visualization.html')
 
   for i in range(6):
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
