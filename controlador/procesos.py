@@ -127,6 +127,8 @@ def topicmodeling(n):
   
   #Diccionario
   id2word = corpora.Dictionary(tweet)
+  for (token, uid) in id2word.token2id.items():
+        id2word.id2token[uid] = token
   #Bolsa de palabras
   corpus = [id2word.doc2bow(text) for text in tweet]
 
@@ -167,7 +169,7 @@ def topicmodeling(n):
   import warnings
   warnings.simplefilter("ignore", DeprecationWarning)
 
-  vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
+  vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word,mds='mmds') 
   pyLDAvis.save_html(opts,'templates/LDA_Visualization.html')
 
   for i in range(6):
