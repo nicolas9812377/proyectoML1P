@@ -153,7 +153,6 @@ function calculartpm(){
     error :function(err){
       $('#loadingmessage4').hide();
       $('#boton2').attr("disabled", false);
-      alert(err.message);
       console.log(err);
       }
   })

@@ -176,7 +176,7 @@ def topicmodeling(n):
   temp = 0
   for i in range(4):
     #unir Tweets
-    text = " ".join(review for review in tt[temp,h]) 
+    text = " ".join(review for review in tt[temp:h]) 
     #wordcloud
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
     #Guardar Imagen
