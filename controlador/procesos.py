@@ -174,16 +174,18 @@ def topicmodeling(n):
   #calcular grupos
   h = int(n/4)
   temp = 0
+  h1 = h
   for i in range(4):
     #unir Tweets
-    text = " ".join(review for review in tt[temp:h]) 
+    text = "".join(review for review in tt[temp:h1]) 
+    print(len(tt[temp:h1]))
     #wordcloud
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
     #Guardar Imagen
     wordcloud.to_file("static/wordc/"+str(i)+".png") 
     #Reemplazo de variables
-    temp = h
-    h+=h
+    temp = h1
+    h1+=h
   return tpm
 ###############LITERAL 2###############################
 def literal2():
