@@ -139,14 +139,10 @@ function calculartpm(){
       $('#tpmne').text('Porcentaje de Neutros : ' +msg[1][2]);
       $('#tpmt').text('Total de Topics : ' +msg[1][3]+' ');
       var imag = '<table style="text-align:center">';
-      for(let i = 0 ; i<5 ; i+=2){
+      for(let i = 0 ; i<6 ; i+=2){
         imag += `<tr><th>Topic # ${i+1}</th><th>Topic # ${i+2}</th><tr>`;
-        if(i+1 == 4){
-          imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><tr>`;
-          break;
-        }else{
-          imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;
-        }
+        imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;
+        
         
       }
       imag+='</table>'

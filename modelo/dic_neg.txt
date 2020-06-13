@@ -214,6 +214,7 @@ radical
 limitado
 copa
 fallecimiento
+fallecidos
 disputado
 dudas
 terror
@@ -1351,6 +1352,7 @@ egoísmo
 rarezas
 discrepancia
 pandemia
+pandemias
 coronavirus
 venenoso
 vago

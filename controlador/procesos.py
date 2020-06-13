@@ -14,7 +14,6 @@ def categorizar(positivo,negativo):
   positivo = np.array(positivo)
   print('Vector Resultante')
   total = np.vstack((positivo, negativo)).T
-  #print(total)
   temp1 = []
   contpos = 0
   contneg = 0
@@ -30,8 +29,8 @@ def categorizar(positivo,negativo):
       temp1.append('Negativo')
       contneg +=1
 
-  for i in zip(total,temp1):
-    print(i)
+  #for i in zip(total,temp1):
+  #  print(i)
   
   print("Porcentaje de Positivos: ",round(contpos/len(total),2))
   print("Porcentaje de Negativos: ",round(contneg/len(total),2))
@@ -71,20 +70,20 @@ def literal1(n):
   tweetneg = []
   tweetneg.append(dicneg)
   tweetneg = tweetneg+tweet
-  invertit = nl.inverted(tweetneg,dicneg)
+  invertit = nl.inverted(tweet,dicneg)
   df=cs.df(invertit)
   idf=cs.idf(df,len(invertit[0]))
   wtf=cs.wtf(invertit)
   tfidf = cs.tfidf(wtf,idf)
-  modulo= cs.modulo(wtf)
-  longnorneg= cs.longnorm(wtf,modulo)
+  modulo= cs.modulo(tfidf)
+  longnorneg= cs.longnorm(tfidf,modulo)
   vectorneg = cs.vectordistance(longnorneg)
   
   #Coseno de Positivos
   tweetpos =[]
   tweetpos.append(dicposi)
   tweetpos = tweetpos+tweet
-  invertit = nl.inverted(tweetpos,dicposi)
+  invertit = nl.inverted(tweet,dicposi)
   df=cs.df(invertit)
   idf=cs.idf(df,len(invertit[0]))
   wtf=cs.wtf(invertit)
@@ -125,10 +124,12 @@ def topicmodeling(n):
   tweet = nl.tokenizar(tweet)
   tweet = nl.qstopwords(tweet,1)
   
+  #Diccionario
   id2word = corpora.Dictionary(tweet)
+  #Bolsa de palabras
   corpus = [id2word.doc2bow(text) for text in tweet]
 
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=5, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=6, random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
 
   topics = []
   for idx, topic in lda_model.print_topics(-1):
@@ -162,14 +163,19 @@ def topicmodeling(n):
   tpm.append(est1)
   tpm.append(cl1)
   
-  try:
-  #pyLDAvis.enable_notebook()
-    vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word,sort_topics=False)
-    pyLDAvis.save_html(vis, 'templates/LDA_Visualization.html')
-  except:
-    print()
-      
-  for i in range(5):
+  from pyLDAvis import sklearn as sklearn_lda
+  import pickle 
+  LDAvis_prepared = sklearn_lda.prepare(lda_model, id2word, corpus)
+  with open('templates/lda', 'w') as f:
+    pickle.dump(LDAvis_prepared, f)
+        
+  # load the pre-prepared pyLDAvis data from disk
+  with open('templates/lda') as f:
+    LDAvis_prepared = pickle.load(f)
+  
+  pyLDAvis.save_html(LDAvis_prepared, 'templates/lda_topic.html')
+       
+  for i in range(6):
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(tt[i])
     wordcloud.to_file("static/wordc/"+str(i)+".png")
 

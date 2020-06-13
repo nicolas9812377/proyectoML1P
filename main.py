@@ -1,6 +1,6 @@
 from controlador import procesos as p  
 
-#p.literal1(300)
+#p.literal1(10)
 #p.literal2()
 #p.literal3("jj")
 #p.topicmodeling(10)
