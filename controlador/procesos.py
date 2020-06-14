@@ -140,15 +140,14 @@ def topicmodeling(n):
     tp = [w.split('*') for w in tp] 
     topics.append(tp)
 
-  tpm.append(topics)
-
   temp = []
   for top in topics:
     t = []
     for j in top:
       t.append(j[1].replace('"','').strip())
     temp.append(t)
-
+  
+  tpm.append(temp)
   print(temp)
 
   #Obteniendo Diccionarios
