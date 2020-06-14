@@ -29,8 +29,8 @@ def categorizar(positivo,negativo):
       temp1.append('Negativo')
       contneg +=1
 
-  #for i in zip(total,temp1):
-  #  print(i)
+  for i in zip(total,temp1):
+    print(i)
   
   print("Porcentaje de Positivos: ",round(contpos/len(total),2))
   print("Porcentaje de Negativos: ",round(contneg/len(total),2))
@@ -178,7 +178,6 @@ def topicmodeling(n):
   for i in range(4):
     #unir Tweets
     text = "".join(review for review in tt[temp:h1]) 
-    print(len(tt[temp:h1]))
     #wordcloud
     wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
     #Guardar Imagen
@@ -219,5 +218,5 @@ def literal3(frase):
    return c1.sentiment
   except:
     print('corregido error')
-    return [0,0]
+    return ['na','na']
 ################################################## 
