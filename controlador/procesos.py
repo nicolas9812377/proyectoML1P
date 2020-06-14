@@ -29,8 +29,8 @@ def categorizar(positivo,negativo):
       temp1.append('Negativo')
       contneg +=1
 
-  for i in zip(total,temp1):
-    print(i)
+  #for i in zip(total,temp1):
+  # print(i)
   
   print("Porcentaje de Positivos: ",round(contpos/len(total),2))
   print("Porcentaje de Negativos: ",round(contneg/len(total),2))
