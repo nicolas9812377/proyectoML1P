@@ -132,7 +132,7 @@ def topicmodeling(n):
   #Bolsa de palabras
   corpus = [id2word.doc2bow(text) for text in tweet]
   #algoritmo lda_model
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto')
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,random_state=100,update_every=1,chunksize=100,alpha='auto')
 
   topics = []
   for idx, topic in lda_model.print_topics(-1):
