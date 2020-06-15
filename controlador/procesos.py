@@ -112,12 +112,12 @@ def topicmodeling(n):
   tpm = []
   #stopwords
   n4 = stopwords.words('spanish')
-  n4 += stopwords.words('english')
   n4.append('gt')
   n4.append('oms')
   n4.append('así')
   n4.append('aquí')
-
+  n4.append('cómo')
+  
   print("Topic Modeling")
   #nlp
   tweet = tw.obtenerTweets(n) 
@@ -126,7 +126,7 @@ def topicmodeling(n):
   tt = tweet[:]
   tweet = nl.tokenizar(tweet)
   tweet = nl.qstopwords(tweet,1)
-  
+
   #Diccionario
   id2word = corpora.Dictionary(tweet)
   #Bolsa de palabras
@@ -135,7 +135,7 @@ def topicmodeling(n):
   lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,random_state=100,update_every=1,chunksize=100,alpha='auto')
 
   topics = []
-  for idx, topic in lda_model.print_topics(-1):
+  for idx, topic in lda_model.print_topics(num_topics=4, num_words=10):
     tp = topic.split('+')
     tp = [w.split('*') for w in tp] 
     topics.append(tp)
@@ -173,7 +173,7 @@ def topicmodeling(n):
   #Unir tweets en uno solo
   text = "".join(review for review in tt) 
   #wordcloud
-  wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=110, background_color="white").generate(text)
+  wordcloud = WordCloud(stopwords=n4,max_font_size=50, background_color="white").generate(text)
   #Guardar Imagen
   wordcloud.to_file("static/wordc/0.png")
   return tpm
