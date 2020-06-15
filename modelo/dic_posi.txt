@@ -18,7 +18,6 @@ original
 igual
 primero
 servicio
-modo
 principios
 gracias
 personaje
@@ -1242,7 +1241,6 @@ adueñarse
 conmovedor
 intrincado
 bellamente
-great
 radioactivo
 bienvenidos
 imaginativo
@@ -1277,7 +1275,6 @@ delicia
 angelical
 meticuloso
 idol
-ready
 aplazar
 desmontable
 receptivo
@@ -1320,7 +1317,6 @@ atrevimiento
 tranquilizar
 amistosamente
 agraciado
-important
 elegantemente
 revolucionar
 sagaz
@@ -1350,7 +1346,6 @@ caballerosidad
 adelantamiento
 sonrisas
 espumoso
-lead
 infalibilidad
 románticamente
 caritativo

@@ -142,12 +142,8 @@ function calculartpm(){
       $('#tpmn').text('Porcentaje de Negativos : ' +msg[1][1]);
       $('#tpmne').text('Porcentaje de Neutros : ' +msg[1][2]);
       $('#tpmt').text('Total de Topics : ' +msg[1][3]+' ');
-      var imag = '<table style="text-align:center">';
-      for(let i = 0 ; i<4 ; i+=2){
-        imag += `<tr><th>Grupo # ${i+1}</th><th>Grupo # ${i+2}</th><tr>`;
-        imag += `<tr><td style="padding: 15px"><img src='/static/wordc/${i}.png'></td><td style="padding: 15px"><img src='/static/wordc/${i+1}.png'></td><tr>`;        
-      }
-      imag+='</table>';
+      var imag = `<h3>Word Cloud</h3>`;
+      imag += `<img src='/static/wordc/0.png' width="600px" heigth="550">`;
       $('#imgtp').html(imag);
     },timeout : 300000,
     error :function(err){

@@ -148,7 +148,7 @@ def topicmodeling(n):
     temp.append(t)
   
   tpm.append(temp)
-  print(temp)
+  #print(temp)
 
   #Obteniendo Diccionarios
   dicposi = lc.leerTxt('modelo/dic_posi.txt')
@@ -170,20 +170,11 @@ def topicmodeling(n):
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
   
-  #calcular grupos
-  h = int(n/4)
-  temp = 0
-  h1 = h
-  for i in range(4):
-    #unir Tweets
-    text = "".join(review for review in tt[temp:h1]) 
-    #wordcloud
-    wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
-    #Guardar Imagen
-    wordcloud.to_file("static/wordc/"+str(i)+".png") 
-    #Reemplazo de variables
-    temp = h1
-    h1+=h
+  text = "".join(review for review in tt) 
+  #wordcloud
+  wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
+  #Guardar Imagen
+  wordcloud.to_file("static/wordc/0.png")
   return tpm
 ###############LITERAL 2###############################
 def literal2():
