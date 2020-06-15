@@ -5,6 +5,13 @@ from controlador import modulo_tweets as tw
 from controlador import modulo_lec_escri as lc
 from controlador import modulo_maquinavec as mv
 from textblob import TextBlob 
+import gensim
+import pyLDAvis
+import pyLDAvis.gensim 
+from nltk.corpus import stopwords
+import gensim.corpora as corpora  
+from wordcloud import WordCloud
+
 
 from controlador import nlp as nl
 
@@ -102,13 +109,6 @@ def literal1(n):
   return rs
 ##########################################################
 def topicmodeling(n):
-  import gensim
-  import pyLDAvis
-  import pyLDAvis.gensim 
-  from nltk.corpus import stopwords
-  import gensim.corpora as corpora  
-  from wordcloud import WordCloud
-
   tpm = []
   #stopwords
   n4 = stopwords.words('spanish')
@@ -132,7 +132,7 @@ def topicmodeling(n):
   #Bolsa de palabras
   corpus = [id2word.doc2bow(text) for text in tweet]
   #algoritmo lda_model
-  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto',per_word_topics=True)
+  lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,id2word=id2word,num_topics=4,random_state=100,update_every=1,chunksize=100,passes=10,alpha='auto')
 
   topics = []
   for idx, topic in lda_model.print_topics(-1):
@@ -170,9 +170,10 @@ def topicmodeling(n):
   vis = pyLDAvis.gensim.prepare(lda_model,corpus,id2word) 
   pyLDAvis.save_html(vis,'templates/LDA_Visualization.html')
   
+  #Unir tweets en uno solo
   text = "".join(review for review in tt) 
   #wordcloud
-  wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=100, background_color="white").generate(text)
+  wordcloud = WordCloud(stopwords=n4,max_font_size=50, max_words=110, background_color="white").generate(text)
   #Guardar Imagen
   wordcloud.to_file("static/wordc/0.png")
   return tpm
