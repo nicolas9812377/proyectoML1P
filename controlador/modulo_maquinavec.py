@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 
 
-def maqvec(x, y):
+def maqvec(x, y,tw):
     X = np.array(x).T
     y = np.array(y)
     rep = []
@@ -30,8 +30,10 @@ def maqvec(x, y):
     precision = precision_score(y_test, y_pred, pos_label="1")
     print("Porcentaje de Positivos", round(matriz[0][0] / 300, 2))
     print("Porcentaje de Negativos", round(matriz[1][1] / 300, 2))
-    print("Porcentaje de Error", round((matriz[0][1] + matriz[1][0]) / 300, 2))
-    print('Precisión del modelo:', round(precision, 2))
+    print("Porcentaje de Error", round((matriz[0][1] + matriz[1][0]) / 300, 3))
+    print('Precisión del modelo:', round(precision, 3))
     rep.append(str(precision))
-    
+    rep.append(y_test.tolist())
+    rep.append(y_pred.tolist())
+    rep.append(tw)
     return rep

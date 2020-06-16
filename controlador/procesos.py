@@ -173,7 +173,7 @@ def topicmodeling(n):
   #Unir tweets en uno solo
   text = "".join(review for review in tt) 
   #wordcloud
-  wordcloud = WordCloud(stopwords=n4,max_font_size=50, background_color="white").generate(text)
+  wordcloud = WordCloud(max_font_size=50, background_color="white").generate(text)
   #Guardar Imagen
   wordcloud.to_file("static/wordc/0.png")
   return tpm
@@ -183,6 +183,7 @@ def literal2():
   #Lee el DatasetGlobal.csv
   tt,etiquetado = lc.leercsv('modelo/datasetGlobal.csv')
   #Proceso NLP
+  tw = tt[:]
   tt = nl.minusculas(tt[:1000])
   tt = nl.eliminarce(tt)
   tt = nl.tokenizar(tt)
@@ -193,7 +194,7 @@ def literal2():
   print('Generando Bolsa de Palabras')
   bolsa = nl.inverted(tt,dic)
   print('Maquina de Soporte Vectorial')
-  return mv.maqvec(bolsa,etiquetado[:1000])
+  return mv.maqvec(bolsa,etiquetado[:1000],tw)
 #######################################################
 
 ##############LITERAL ###########################

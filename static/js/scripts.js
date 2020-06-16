@@ -112,8 +112,21 @@ function cargar(){
       $('#mtc').html(tabla);
       $('#pp').text("Porcentaje de Positivos : "+(msg[0]/300).toFixed(2));
       $('#pn').text("Porcentaje de Negativos : "+(msg[3]/300).toFixed(2));
-      $('#pe').text("Porcentaje de Error : "+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(2));
-      $('#pm').text("Precision del modelo : "+(msg[4]/1).toFixed(2));
+      $('#pe').text("Porcentaje de Error : "+((parseInt(msg[1])+parseInt(msg[2]))/300).toFixed(3));
+      $('#pm').text("Precision del modelo : "+(msg[4]/1).toFixed(3));
+
+      var twetsque = '<thead class="thead-dark"><th>#</th><th>Tweet</th><th>Etiquetado</th><th>Predicion</th></thead><tbody style="text-align:left">';
+      for(let i = 0 ; i < msg[5].length; i++){
+        var pole = '';
+        var polp= '';
+        if(msg[5][i] == 0){pole='Negativo'}else{pole='Positivo'}
+        if(msg[6][i] == 0){polp='Negativo'}else{polp='Positivo'}
+
+        twetsque+=`<tr><th scope="row">${i+1}</th><td>${msg[7][i]}</td><td>${pole}</td><td>${polp}</td></tr>`;
+      }
+      twetsque += '</tbody>';
+      console.log(twetsque)
+      $('#tweque').html(twetsque);
     },
     error :function(err){console.log(err);}
   })

@@ -86,7 +86,7 @@
        <img src='{{ url_for('static', filename='img/ajax-loader.gif') }}'/>
        </div>
                         
-                        <table class="table table-borderless">
+                        <table class="table table-borderless table-hover">
                         <thead >
                         <tr>
                         <th></th><th>Jaccard</th><th >Coseno Vectorial</th>
@@ -151,7 +151,12 @@
 <label id ="pp">Porcentaje de Positivos : 0</label><br>
 <label id="pn">Porcentaje de Negativos : 0</label><br>
 <label id="pe">Porcentaje de Error : 0</label><br>
-<label id="pm">Precision del modelo : 0</label>
+<label id="pm">Precision del modelo : 0</label><br>
+<div class="table-responsive" style="height:300px !important">
+  <table class="table table-striped" id="tweque">
+
+  </table>
+</div>
                     </div>
                 </div>
             </div>
