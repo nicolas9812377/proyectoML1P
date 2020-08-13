@@ -1,4 +1,5 @@
 import tweepy
+import json
 def obtenerTweets(n):
   # 4 cadenas para la autenticacion
   consumer_key = "cgr7RCgecGri8ECGP6W1uTfdN"
@@ -20,9 +21,12 @@ def obtenerTweets(n):
           'tweet_mode' :'extended'
           }
   t= []
+  fecha = []
+ 
   for x,tweet in enumerate(tweepy.Cursor(api.search, **query).items(n)):
     try:
+      fecha.append(str(tweet.created_at))
       t.append(tweet.retweeted_status.full_text.replace('\n', ' '))
     except:
       t.append(tweet.full_text.replace('\n', ' '))
-  return t
+  return t,fecha

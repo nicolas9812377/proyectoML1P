@@ -63,8 +63,9 @@ function graficar(){
         {name: 'Neutros',y:msg[1][2]} 
       ];
       let tabla = ''
+      
       for(let i = 0; i < msg[4].length; i++ ){
-        tabla += `<tr><td>${i+1}</td><td>${msg[4][i]}</td><td>${msg[2][i]}</td><td>${msg[3][i]}</td></tr>`; 
+        tabla += `<tr><td>${i+1}</td><td>${new Date(msg[5][i]).toLocaleDateString()}</td><td>${msg[4][i]}</td><td>${msg[2][i]}</td><td>${msg[3][i]}</td></tr>`; 
       }
       $('#tablat').show();
       $('#container').show();

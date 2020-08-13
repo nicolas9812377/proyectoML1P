@@ -51,7 +51,7 @@ def literal1(n):
   rs = []
   print("Literal 1")
   #Consultando Tweets
-  tweet = tw.obtenerTweets(n) 
+  tweet,fecha = tw.obtenerTweets(n) 
   temp = tweet[:]
   #Proceso NLP
   tweet = nl.minusculas(tweet)
@@ -105,7 +105,7 @@ def literal1(n):
   rs.append(cl1)
   rs.append(cl)
   rs.append(temp[:8])
-  
+  rs.append(fecha)
   return rs
 ##########################################################
 def topicmodeling(n):
