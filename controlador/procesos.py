@@ -104,7 +104,7 @@ def literal1(n):
   rs.append(est)
   rs.append(cl1)
   rs.append(cl)
-  rs.append(temp[:8])
+  rs.append(temp)
   rs.append(fecha)
   return rs
 ##########################################################
