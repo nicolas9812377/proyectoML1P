@@ -120,7 +120,7 @@ def topicmodeling(n):
   
   print("Topic Modeling")
   #nlp
-  tweet = tw.obtenerTweets(n) 
+  tweet,fecha = tw.obtenerTweets(n) 
   tweet = nl.minusculas(tweet)
   tweet = nl.eliminarce(tweet)
   tt = tweet[:]
