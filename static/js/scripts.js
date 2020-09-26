@@ -126,7 +126,7 @@ function cargar(){
         twetsque+=`<tr><th scope="row">${i+1}</th><td>${msg[7][i]}</td><td>${pole}</td><td>${polp}</td></tr>`;
       }
       twetsque += '</tbody>';
-      console.log(twetsque)
+     
       $('#tweque').html(twetsque);
     },
     error :function(err){console.log(err);}
