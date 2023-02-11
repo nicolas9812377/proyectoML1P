@@ -20,5 +20,5 @@ venv-run = "^0.0.0"
 virtualenv = "^20.0"
 pyLDAvis = "^2.1"
 wordcloud = "^1.7"
-ipython = "^7.15"
+ipython = "^8.10"
 [tool.poetry.dev-dependencies]
